@@ -39,9 +39,6 @@ def create_game():
     elif type == "reinforcement_learning":
         ai = Player("p1", 0.2)
         ai.loadPolicy(policy_path)
-    
-    if difficulty == "human":
-        ai = human
     print(f"Creating game with type: {type}, win condition: {wincondition}")
     game = State(human, ai, row, col, wincondition)
     return jsonify({'board': game.board.tolist()})
