@@ -185,7 +185,7 @@
               
               // Start timer
               startTimer();
-              fetch("http://127.0.0.1:5000/create_game", {
+              fetch("https://profile-backend-ej5x.onrender.com/create_game", {
                 method: "POST",
                 headers: {
                         "Content-Type": "application/json"
@@ -279,7 +279,7 @@
         function makeMove(row, col, player) {
             gameState.board[row][col] = player;
             if (player == 'X'){
-                fetch("http://127.0.0.1:5000/human_move", {
+                fetch("https://profile-backend-ej5x.onrender.com/human_move", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -328,7 +328,7 @@
                 async function aiTurn() {
                     
                     try {
-                        const response = await fetch("http://127.0.0.1:5000/ai_move");
+                        const response = await fetch("https://profile-backend-ej5x.onrender.com/ai_move");
                         const data = await response.json();
                         [row, col] = data.ai_move;
                         makeMove(row, col, 'O');
@@ -468,7 +468,7 @@
         // Clear the board
         function clearBoard() {
             boardElement.innerHTML = '';
-            fetch("http://127.0.0.1:5000/reset", {
+            fetch("https://profile-backend-ej5x.onrender.com/reset", {
                 method: "POST"
             })
             .then(response => response.json())
