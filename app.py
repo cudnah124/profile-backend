@@ -3,6 +3,8 @@ from ai import State, Human, Player, RuleBased
 import numpy as np
 import os
 
+port = int(os.environ.get("PORT", 5000))
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 policy_path = os.path.join(current_dir, "policy_p1")
 
@@ -98,4 +100,4 @@ def check_win():
     })
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=port)
