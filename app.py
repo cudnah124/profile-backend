@@ -46,7 +46,7 @@ def create_game():
 def index():
     referer = request.headers.get("Referer")
     # Kiểm tra nếu không có referer hoặc không đến từ frontend
-    if not referer or ("http://localhost:3000" not in referer and "http://localhost:5000" not in referer):
+    if not referer or ("https://ducnha124.vercel.app/" not in referer and "https://profile-backend-ej5x.onrender.com" not in referer):
         abort(403)  # Trả về lỗi Forbidden
     return render_template('index.html')
 
